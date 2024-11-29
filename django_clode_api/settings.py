@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6k)%vjdqg(qd%y$^ikr3ndn^wc4s$-8i14b(0q70!j03zm!c@&'
+# SECRET_KEY = 'django-insecure-6k)%vjdqg(qd%y$^ikr3ndn^wc4s$-8i14b(0q70!j03zm!c@&'
+
+
+SECRET_KEY = os.getenv('SECRET_KEY', 'default_key')
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [
+    'clodefashion-cvgsfraybebab5dz.brazilsouth-01.azurewebsites.net',
+    'localhost',  # Para pruebas locales
+    '127.0.0.1',  # Dirección IP local
+]
+
+
+
+
 
 
 # Application definition
@@ -40,6 +55,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'clode',
+    'dj_database_url',
+
 ]
 
 MIDDLEWARE = [
@@ -51,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'django_clode_api.urls'
@@ -84,7 +102,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
         'USER': 'postgres',
-        'PASSWORD': '12345'
+        'PASSWORD': 'cr7cr7'
     }
 }
 
@@ -132,3 +150,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #cors authorization
 CORS_ALLOWED_ORIGINS = []
+CORS_ALLOW_ALL_ORIGINS = True
