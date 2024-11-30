@@ -10,7 +10,7 @@ router.register(r'user_preferences', views.UsersPreferencesView, basename='user_
 router.register(r'garments', views.GarmentsView, basename='garments')
 router.register(r'garment_tags', views.GarmentTagsView, basename='garment_tags')
 router.register(r'exchange', views.ExchangeView, basename='exchange')
-router.register(r'scores', views.ScoresView, basename='scores')
+# router.register(r'scores', views.ScoresView, basename='scores')
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),

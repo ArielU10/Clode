@@ -24,6 +24,6 @@ class ExchangeView(viewsets.ModelViewSet):
     serializer_class = ExchangeSerializer
     queryset = Exchange.objects.all()
 
-class ScoresView(viewsets.ModelViewSet):
-    serializer_class = ScoresSerializer
-    queryset = Scores.objects.all()
+# class ScoresView(viewsets.ModelViewSet):
+#     serializer_class = ScoresSerializer
+#     queryset = Scores.objects.all()

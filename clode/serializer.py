@@ -26,7 +26,7 @@ class ExchangeSerializer(serializers.ModelSerializer):
         model = Exchange
         fields = '__all__'
 
-class ScoresSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Scores
-        fields = '__all__'
+# class ScoresSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Scores
+#         fields = '__all__'
