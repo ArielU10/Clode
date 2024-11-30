@@ -29,7 +29,6 @@ class UserPreferences(models.Model):
     prefered_free_hours = ArrayField(models.CharField(max_length=300, null=False, default=list))
     prefered_size = models.CharField(max_length=30, null=False)
     prefered_size_shoes = models.DecimalField(max_digits=2, decimal_places=1, null=False)
-    prefered_colors = models.CharField(max_length=50, null=True)
     prefered_style = models.CharField(max_length=100, null=False)
 
     def __str__(self) -> str:
