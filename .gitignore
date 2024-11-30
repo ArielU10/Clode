@@ -1,0 +1,41 @@
+# Ignorar el entorno virtual en la raíz
+.venv/
+venv/
+
+# Archivos de configuración y dependencias
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.env
+*.log
+
+# Carpetas generadas por Python
+_pycache_/
+*.py[cod]
+
+# Ignorar configuraciones de IDEs/editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Archivos creados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos estáticos generados
+staticfiles/
+media/
+
+# Migraciones generadas (opcional, según el caso)
+migrations/*
+
+# Ignorar configuraciones locales y secretos
+local_settings.py
+
+# Archivos de compilación (si usas Docker u otros)
+*.bak
+*.orig
+*.tmp
+*.pid
