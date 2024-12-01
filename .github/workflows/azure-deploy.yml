@@ -1,0 +1,37 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main  # Este flujo se ejecutará cuando haya cambios en la rama principal
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # Usamos un contenedor Ubuntu para este flujo
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Obtiene el código de tu repositorio
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'  # Define la versión de Python a usar
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Instala las dependencias necesarias
+
+    - name: Log in to Azure
+      uses: azure/login@v1  # Usa la acción oficial de Azure para loguearse
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}  # El ID del cliente de tu Service Principal
+        client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}  # El secreto de tu Service Principal
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}  # El ID de inquilino de tu Azure Active Directory
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: Clode  # El nombre de la aplicación web en Azure
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}  # Este es el perfil de publicación desde Azure
