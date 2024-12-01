@@ -24,7 +24,7 @@ jobs:
         pip install -r requirements.txt  # Instala las dependencias necesarias
 
     - name: Log in to Azure
-      uses: azure/login@v1  # Usa la acción oficial de Azure para loguearse
+      uses: azure/login@v2  # Usa la acción oficial de Azure para loguearse
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}  # El ID del cliente de tu Service Principal
         client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}  # El secreto de tu Service Principal
