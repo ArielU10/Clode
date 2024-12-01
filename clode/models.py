@@ -52,6 +52,7 @@ class Garments(models.Model):
 class GarmentTags(models.Model):
     garment = models.ForeignKey(Garments, on_delete=models.RESTRICT, related_name='tags')
     tag_name = models.CharField(max_length=100, null=False)
+    tag_picture = models.ImageField(upload_to='media/tag_picture/', null=True)
 
     def __str__(self) -> str:
         return self.tag_name
